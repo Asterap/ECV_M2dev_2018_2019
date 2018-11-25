@@ -5,7 +5,7 @@ const MessageModel = require('../../models/message.model');
 //
 
 /*
-CRU Functions for an hypothetical chat
+CRD Functions for an hypothetical chat
 */
 const createMessage = body => {
     // Send a message to the database
