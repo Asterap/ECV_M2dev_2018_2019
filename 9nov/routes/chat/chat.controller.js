@@ -33,7 +33,7 @@ const readMessage = () => {
     // Read all the messages
     return new Promise((resolve, reject) => {
         // Fetching messages
-        MessageModel.find({}, (error, newMessage) => {
+        MessageModel.find((error, newMessage) => {
             if (error) { // Mongo error
                 return reject(error)
             } else { // Message retrieved
