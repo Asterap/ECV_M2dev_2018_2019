@@ -15,7 +15,7 @@ Model definition
         last_name: String,
         email: String,
         password: String,
-    })
+    });
 //
 
 /*

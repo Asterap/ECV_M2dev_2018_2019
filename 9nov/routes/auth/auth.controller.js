@@ -23,7 +23,7 @@ Functions
                     // Crypt password
                     bcrypt.hash(body.password, 10)
                     .then( hashedPassword => {
-                        console.log(hashedPassword)
+                        console.log(hashedPassword);
                         // Replace clear password
                         body.password = hashedPassword;
 
@@ -34,14 +34,14 @@ Functions
                             }
                             else{ // User registrated
                                 return resolve(newUser);
-                            };
+                            }
                         });
                     })
                     .catch( hashError => {
-                        console.log('error', hashError)
+                        console.log('error', hashError);
                         return reject(hashError);
                     });
-                };
+                }
             });
         });
     };
@@ -50,13 +50,13 @@ Functions
         return new Promise( (resolve, reject ) => {
 
             UserModel.findOne( { email: body.email }, (error, user) => {
-                if(error) reject(error)
-                else if( !user ) reject('User not found')
+                if(error) reject(error);
+                else if( !user ) reject('User not found');
                 else{
                     // Check password
-                    const validPassword = bcrypt.compareSync( body.password, user.password )
+                    const validPassword = bcrypt.compareSync( body.password, user.password );
 
-                    if( !validPassword ) reject('Password not valid')
+                    if( !validPassword ) reject('Password not valid');
                     else resolve({
                         user: user,
                         token: user.generateJwt()
@@ -74,5 +74,5 @@ Export
     module.exports = {
         register,
         login
-    }
+    };
 //
